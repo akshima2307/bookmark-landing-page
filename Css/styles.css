@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  box-sizing: inherit;
+  font-family: 'Rubik', sans-serif; }
+
+.navigation {
+  height: 20vh;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  font-weight: 500; }
+  .navigation__logo {
+    position: absolute;
+    top: 45%;
+    left: 10%; }
+  .navigation__nav {
+    position: absolute;
+    top: 40%;
+    left: 50%; }
+  .navigation__list {
+    list-style: none; }
+  .navigation__item {
+    display: inline-block;
+    color: #5368df;
+    padding: 1rem; }
+    .navigation__item:not(:last-child):hover {
+      color: #fa5757; }
+  .navigation__items {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase; }
+  .navigation .login {
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
+    background-color: #fa5757; }
+    .navigation .login:hover {
+      background-color: white;
+      color: #fa5757;
+      border: 2px solid #fa5757; }
+
+.header {
+  height: 75vh;
+  position: relative;
+  background-image: url("../images/illustration-hero.svg");
+  background-position: right;
+  background-repeat: no-repeat; }
+  .header__bg {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+    width: 35%;
+    height: 65%;
+    border-radius: 300px 0 0 300px;
+    background-color: #5368df; }
+  .header__content {
+    width: 35%;
+    position: absolute;
+    top: 25%;
+    left: 10%; }
+  .header__button {
+    display: inline-block;
+    margin-top: 1rem; }
+  .header__btn {
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    border: none; }
+    .header__btn:not(:last-child) {
+      margin-right: 1rem; }
+    .header__btn__blue {
+      background-color: #5368df;
+      color: white; }
+    .header__btn__white {
+      background-color: white;
+      color: #252b46;
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+
+.heading-primary {
+  color: #252b46;
+  font-size: 2.5rem; }
+
+.paragraph {
+  color: #9194a1;
+  letter-spacing: 2px;
+  padding: 1rem 0; }
+
+.feature {
+  height: 90vh;
+  position: relative; }
+  .feature__main {
+    width: 50%;
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    text-align: center; }

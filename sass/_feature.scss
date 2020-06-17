@@ -1,0 +1,12 @@
+.feature{
+  height: 90vh;
+  position: relative;
+  &__main{
+    width: 50%;
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    text-align: center;
+  }
+
+}

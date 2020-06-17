@@ -1,0 +1,58 @@
+
+
+.header{
+  height: 75vh;
+  position: relative;
+  background-image: url("../images/illustration-hero.svg");
+  background-position: right;
+  background-repeat: no-repeat;
+  &__bg {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+    width: 35%;
+    height: 65%;
+    border-radius: 300px 0 0 300px;
+    background-color: $Soft-Blue;
+  }
+  &__content{
+    width: 35%;
+    position: absolute;
+    top: 25%;
+    left: 10%;
+  }
+  &__button{
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  &__btn{
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    border: none;
+    &:not(:last-child){
+      margin-right: 1rem;
+    }
+
+    &__blue{
+      background-color: $Soft-Blue;
+      color: white;
+    }
+    &__white{
+      background-color: white;
+      color: $Very-Dark-Blue;
+      box-shadow: 0 1.5rem 4rem rgba(black, .15);
+    }
+  }
+}
+
+.heading-primary{
+  color: $Very-Dark-Blue;
+  font-size: 2.5rem;
+}
+.paragraph{
+  color: $Grayish-Blue;
+  letter-spacing: 2px;
+  padding: 1rem 0;
+}

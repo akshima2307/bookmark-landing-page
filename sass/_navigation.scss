@@ -1,0 +1,57 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  box-sizing: inherit;
+  font-family: 'Rubik', sans-serif;
+}
+$Soft-Blue: hsl(231, 69%, 60%);
+$Soft-Red: hsl(0, 94%, 66%);
+$Grayish-Blue: hsl(229, 8%, 60%);
+$Very-Dark-Blue: hsl(229, 31%, 21%);
+.navigation{
+  height: 20vh;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  font-weight: 500;
+  &__logo{
+    position: absolute;
+    top: 45%;
+    left: 10%;
+  }
+  &__nav{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+  }
+  &__list{
+    list-style: none;
+  }
+  &__item{
+    display: inline-block;
+    color: $Soft-Blue;
+    padding: 1rem;
+    &:not(:last-child):hover{
+      color: $Soft-Red;
+    }
+  }
+  &__items{
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .login{
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
+    background-color: $Soft-Red;
+    &:hover{
+      background-color: white;
+      color: $Soft-Red;
+      border: 2px solid $Soft-Red;
+    }
+  }
+}
