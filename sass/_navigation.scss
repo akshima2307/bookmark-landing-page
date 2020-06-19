@@ -10,6 +10,17 @@ $Soft-Blue: hsl(231, 69%, 60%);
 $Soft-Red: hsl(0, 94%, 66%);
 $Grayish-Blue: hsl(229, 8%, 60%);
 $Very-Dark-Blue: hsl(229, 31%, 21%);
+
+@mixin respond($breakpoint){
+  @if $breakpoint == Mobile{
+      @media (max-width: 375px)  {@content};
+  }
+}
+
+
+
+
+
 .navigation{
   height: 20vh;
   display: flex;
@@ -20,6 +31,10 @@ $Very-Dark-Blue: hsl(229, 31%, 21%);
     position: absolute;
     top: 45%;
     left: 10%;
+    @include respond(Mobile){
+      top:40%;
+      left: 6%;
+    }
   }
   &__nav{
     position: absolute;
@@ -31,7 +46,6 @@ $Very-Dark-Blue: hsl(229, 31%, 21%);
   }
   &__item{
     display: inline-block;
-    color: $Soft-Blue;
     padding: 1rem;
     &:not(:last-child):hover{
       color: $Soft-Red;
@@ -41,6 +55,7 @@ $Very-Dark-Blue: hsl(229, 31%, 21%);
     font-size: 1.1rem;
     font-weight: 600;
     text-decoration: none;
+    color: $Very-Dark-Blue;
     text-transform: uppercase;
   }
   .login{
@@ -54,4 +69,116 @@ $Very-Dark-Blue: hsl(229, 31%, 21%);
       border: 2px solid $Soft-Red;
     }
   }
+  // Hamburger icon
+  @include respond(Mobile){
+      &__background{
+        width: 3rem;
+        height: 3rem;
+        position: absolute;
+        top: 28%;
+        right: 16%;
+        background-color: rgba(black,0.5);
+        border-radius: 6px;
+        z-index: 1000;
+        transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+      }
+      &__checkbox{
+        display: none;
+      }
+      &__button{
+      background-color: white;
+      width: 3rem;
+      height: 3rem;
+      position: absolute;
+      top: 28%;
+      right: 16%;
+      z-index: 2000;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 6px;
+      }
+      &__nav{
+        position: relative;
+        margin: 0;
+        height: 100vh;
+        transition: all .2s;
+        z-index: 1500;
+        opacity: 0;
+        width: 0;
+        transition: all .8s cubic-bezier(0.65 , -0.55 , 0.265 , 1.55);
+      }
+      &__list{
+        height: 60vh;
+
+        position: absolute;
+        top: 25%;
+        left: -17%;
+        text-align: center;
+      }
+      &__item{
+        display: block;
+        color: $Very-Dark-Blue;
+        padding: 1rem;
+        &:not(:last-child):hover{
+          color: $Soft-Red;
+        }
+      }
+      &__items{
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+        transition: all .5s;
+        }
+        &:hover{
+          border: 1px solid white;
+
+        }
+
+
+
+
+
+      &__checkbox:checked ~ &__background {
+        transform: scale(25);
+      }
+      &__checkbox:checked ~ &__nav {
+        opacity: 1;
+        width: 100%;
+      }
+
+      &__icon {
+        position: relative;
+        margin-top: 1.4rem;
+        &,
+        &::before,
+        &::after{
+            display: inline-block;
+            width: 1.5rem;
+            height: 1px;
+            background-color: $Very-Dark-Blue;
+
+        }
+        &::before,
+        &::after{
+            content:"";
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+        &::before{
+            top: -0.6rem;
+        }
+        &::after{
+            top: 0.6rem;
+        }
+      }
+
+
+
+
+
+
+    }
 }

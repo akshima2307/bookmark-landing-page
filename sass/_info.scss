@@ -1,0 +1,30 @@
+.info{
+  height: 40vh;
+  background-color: $Soft-Blue;
+  color: white;
+  padding: 3.5rem;
+  text-align: center;
+
+  & > h2 {
+    margin: 2rem;
+    font-size: 2rem;
+  }
+  & > h3{
+    font-size: 1rem;
+    font-weight: 100;
+    letter-spacing: 3px;
+  }
+  &__input{
+    padding: .7rem 2rem;
+    border-radius: 5px;
+    border: none;
+    color: rgba($Very-Dark-Blue , .5 );
+  }
+  &__btn{
+    padding: .7rem 2rem;
+    background-color: $Soft-Red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+}

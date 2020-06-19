@@ -1,0 +1,54 @@
+.comment{
+  height: 90vh;
+
+  margin: 6rem;
+  &__container{
+    margin: 2rem;
+    text-align: center;
+  }
+  &__btn{
+    background-color: $Soft-Blue;
+    color: white;
+    padding: .7rem 1.2rem;
+    border: none;
+  }
+}
+.accordion{
+  width: 90%;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+.accordion-item{
+  background-color: white;
+  color: $Very-Dark-Blue;
+  margin: 1rem 0;
+  box-shadow:  0 2px 5px 0 rgba(0,0,0,0.25);
+}
+.accordion-item-header{
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  min-height: 3.5rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.accordion-item-header::after{
+  content: url("../images/icon-arrow.svg");
+  font-size: 2rem;
+}
+.accordion-item-header.active::after{
+  transform: rotate(180deg);
+}
+
+.accordion-item-body{
+  display: none;
+  padding: 1rem;
+  border-top: 1px solid $Very-Dark-Blue;
+}
+.accordion-item-header.active + .accordion-item-body{
+  display: block;
+}

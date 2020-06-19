@@ -1,0 +1,36 @@
+.about{
+  margin-top: 16rem;
+  height: 80vh;
+  &__main{
+    width: 50%;
+    text-align: center;
+    margin-left: 16rem;
+  }
+}
+.row{
+  margin: 3rem 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  &:not(:last-child){
+    margin-right: 2.5rem;
+  }
+
+}
+.col-1-of-3{
+  padding: .6rem;
+  width: 12rem;
+  box-shadow: 0 1.5rem 4rem rgba(black, .15);
+  & > * {
+    margin-bottom: 1.2rem;
+  }
+  &__btn{
+    background-color: $Soft-Blue;
+    color: white;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: smaller;
+  }
+}
