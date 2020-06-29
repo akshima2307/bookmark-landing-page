@@ -1,9 +1,13 @@
 .info{
   height: 40vh;
+  max-height: 400px;
   background-color: $Soft-Blue;
   color: white;
   padding: 3.5rem;
   text-align: center;
+  @include respond(tab-land){
+      height: 34vh;
+  }
 
   & > h2 {
     margin: 2rem;
@@ -15,16 +19,24 @@
     letter-spacing: 3px;
   }
   &__input{
-    padding: .7rem 2rem;
+    padding: 1rem 7rem;
+    margin-bottom: 1rem;
     border-radius: 5px;
     border: none;
     color: rgba($Very-Dark-Blue , .5 );
   }
   &__btn{
-    padding: .7rem 2rem;
+    padding: .7rem 6rem;
     background-color: $Soft-Red;
     color: white;
     border: none;
     border-radius: 5px;
+    transition: all .2s;
+  }
+  &__btn:hover{
+    border: 1.5px solid $Soft-Blue;
+    color: $Soft-Red;
+    background-color: white;
+    overflow: hidden;
   }
 }

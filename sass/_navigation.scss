@@ -11,18 +11,60 @@ $Soft-Red: hsl(0, 94%, 66%);
 $Grayish-Blue: hsl(229, 8%, 60%);
 $Very-Dark-Blue: hsl(229, 31%, 21%);
 
-@mixin respond($breakpoint){
-  @if $breakpoint == Mobile{
-      @media (max-width: 375px)  {@content};
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone-S {
+        @media only screen and (max-width: 23.4375em){ @content}; //375px
+    }
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content };    //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    //1800px
+    }
+}
+
+
+html{
+  @include respond(tab-land){
+      font-size: 85%;
+  }
+  @include respond(tab-port){
+      font-size: 75%;
+  }
+  @include respond(big-desktop){
+      font-size: xx-large;
   }
 }
 
 
-
-
-
 .navigation{
   height: 20vh;
+  max-height: 200px;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -31,15 +73,18 @@ $Very-Dark-Blue: hsl(229, 31%, 21%);
     position: absolute;
     top: 45%;
     left: 10%;
-    @include respond(Mobile){
-      top:40%;
-      left: 6%;
+    @include respond(phone){
+        top:40%;
+        left: 6%;
     }
   }
   &__nav{
     position: absolute;
     top: 40%;
-    left: 50%;
+    left: 40%;
+    @include respond(phone){
+        display: none;
+    }
   }
   &__list{
     list-style: none;
@@ -52,17 +97,22 @@ $Very-Dark-Blue: hsl(229, 31%, 21%);
     }
   }
   &__items{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 600;
     text-decoration: none;
     color: $Very-Dark-Blue;
     text-transform: uppercase;
+    transition: all .2s;
+  }
+  &__items:hover{
+    color: $Soft-Red;
   }
   .login{
     color: white;
     padding: 1rem 2.5rem;
     border-radius: 5px;
     background-color: $Soft-Red;
+    transition: all .2s;
     &:hover{
       background-color: white;
       color: $Soft-Red;
@@ -70,115 +120,5 @@ $Very-Dark-Blue: hsl(229, 31%, 21%);
     }
   }
   // Hamburger icon
-  @include respond(Mobile){
-      &__background{
-        width: 3rem;
-        height: 3rem;
-        position: absolute;
-        top: 28%;
-        right: 16%;
-        background-color: rgba(black,0.5);
-        border-radius: 6px;
-        z-index: 1000;
-        transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
-      }
-      &__checkbox{
-        display: none;
-      }
-      &__button{
-      background-color: white;
-      width: 3rem;
-      height: 3rem;
-      position: absolute;
-      top: 28%;
-      right: 16%;
-      z-index: 2000;
-      text-align: center;
-      cursor: pointer;
-      border-radius: 6px;
-      }
-      &__nav{
-        position: relative;
-        margin: 0;
-        height: 100vh;
-        transition: all .2s;
-        z-index: 1500;
-        opacity: 0;
-        width: 0;
-        transition: all .8s cubic-bezier(0.65 , -0.55 , 0.265 , 1.55);
-      }
-      &__list{
-        height: 60vh;
 
-        position: absolute;
-        top: 25%;
-        left: -17%;
-        text-align: center;
-      }
-      &__item{
-        display: block;
-        color: $Very-Dark-Blue;
-        padding: 1rem;
-        &:not(:last-child):hover{
-          color: $Soft-Red;
-        }
-      }
-      &__items{
-        font-size: 1.5rem;
-        font-weight: 400;
-        text-decoration: none;
-        color: white;
-        text-transform: uppercase;
-        transition: all .5s;
-        }
-        &:hover{
-          border: 1px solid white;
-
-        }
-
-
-
-
-
-      &__checkbox:checked ~ &__background {
-        transform: scale(25);
-      }
-      &__checkbox:checked ~ &__nav {
-        opacity: 1;
-        width: 100%;
-      }
-
-      &__icon {
-        position: relative;
-        margin-top: 1.4rem;
-        &,
-        &::before,
-        &::after{
-            display: inline-block;
-            width: 1.5rem;
-            height: 1px;
-            background-color: $Very-Dark-Blue;
-
-        }
-        &::before,
-        &::after{
-            content:"";
-            position: absolute;
-            left: 0;
-            transition: all .2s;
-        }
-        &::before{
-            top: -0.6rem;
-        }
-        &::after{
-            top: 0.6rem;
-        }
-      }
-
-
-
-
-
-
-    }
 }

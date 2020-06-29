@@ -6,8 +6,10 @@ function selectItem(e) {
     // Remove all show and border classes
     removeBorder();
     removeShow();
+    removeDark();
     // Add border to current tab item
     this.classList.add('tab-border');
+    this.classList.add('dark');
     // Grab content item from DOM
     const tabContentItem = document.querySelector(`#${this.id}-content`);
     // Add show class
@@ -18,6 +20,13 @@ function selectItem(e) {
 function removeBorder() {
     tabItems.forEach(item => {
         item.classList.remove('tab-border');
+    });
+}
+
+//Remove dark class
+function removeDark() {
+    tabItems.forEach(item => {
+        item.classList.remove('dark');
     });
 }
 

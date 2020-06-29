@@ -2,10 +2,15 @@
 
 .header{
   height: 75vh;
+  max-height: 800px;
   position: relative;
   background-image: url("../images/illustration-hero.svg");
   background-position: right;
   background-repeat: no-repeat;
+  background-size: 50vw;
+  @include respond(tab-port) {
+      height: 55vh;
+  }
   &__bg {
     position: absolute;
     z-index: -1;
@@ -38,11 +43,25 @@
     &__blue{
       background-color: $Soft-Blue;
       color: white;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    &__blue:hover{
+      border: 2px solid $Soft-Blue;
+      background-color: white;
+      color: $Soft-Blue;
     }
     &__white{
       background-color: white;
       color: $Very-Dark-Blue;
       box-shadow: 0 1.5rem 4rem rgba(black, .15);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    &__white:hover{
+      border: 2px solid $Very-Dark-Blue;
+      background-color: white;
+      color: $Very-Dark-Blue;
     }
   }
 }
@@ -56,7 +75,8 @@
   font-size: 1.8rem;
 }
 .paragraph{
+  font-size: 1rem;
   color: $Grayish-Blue;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   padding: 1rem 0;
 }

@@ -1,9 +1,12 @@
 .comment{
   height: 90vh;
-
-  margin: 6rem;
+  max-height: 1000px;
+  margin-top: 6rem;
+  @include respond(tab-land){
+    height: 85vh;
+  }
   &__container{
-    margin: 2rem;
+    margin: 4rem;
     text-align: center;
   }
   &__btn{
@@ -12,6 +15,7 @@
     padding: .7rem 1.2rem;
     border: none;
   }
+  &__btn:hover{cursor: pointer;}
 }
 .accordion{
   width: 90%;

@@ -1,15 +1,57 @@
 .footer{
-  height: 12vh;
+  height: 5vh;
+  max-height: 50px;
   background-color: $Very-Dark-Blue;
   position: relative;
+  padding: 2rem ;
+  @include respond(phone){
+    height: 34vh;
+    max-height: 260px;
+  }
 
   &__row{
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    position: absolute;
-    top: 5%;
+    @include respond(phone){
+      display: block;
+      & > div {
+        margin-bottom: 2rem;
+      }
+    }
+
+  }
+  &__item{
+    margin-right: 25rem;
+    @include respond(phone){
+      display: flex;
+      flex-direction: column;
+    }
+    @include respond(tab-land){margin-right: 12rem;}
+    @include respond(tab-port){margin-right: 0;}
+  }
+  &__items{
+    text-decoration: none;
+    color: white;
+    margin-right: 3rem;
+    transition: all .2s;
+    @include respond(phone){
+        margin-bottom: 1rem;
+    }
+  }
+  &__items:hover{
+    color: $Soft-Red;
+  }
+  &__social-media{
+    margin-right: 2rem;
+  }
+  &__icon{
+    margin-right: 1rem;
+    transition: all .2s;
+  }
+  &__icon:hover{
+    fill: $Soft-Red;
   }
 
 }

@@ -1,10 +1,16 @@
 .about{
   margin-top: 16rem;
   height: 80vh;
+  max-height: 1000px;
+  @include respond(phone){
+    height: 200vh;
+    max-height: 1500px;
+    margin-top: 9rem;
+  }
   &__main{
     width: 50%;
     text-align: center;
-    margin-left: 16rem;
+    margin: 0 auto;
   }
 }
 .row{
@@ -16,21 +22,37 @@
   &:not(:last-child){
     margin-right: 2.5rem;
   }
+  @include respond(phone){
+    display: block;
+  }
 
 }
 .col-1-of-3{
-  padding: .6rem;
-  width: 12rem;
+  padding: 1rem;
+  width: 15rem;
   box-shadow: 0 1.5rem 4rem rgba(black, .15);
   & > * {
     margin-bottom: 1.2rem;
   }
+  @include respond(phone){
+    margin-left: 12rem;
+  }
   &__btn{
     background-color: $Soft-Blue;
     color: white;
-    padding: .5rem 1rem;
+    padding: 1rem 1.4rem;
     border: none;
     border-radius: 5px;
     font-size: smaller;
+    transition: all .2s;
   }
+  &__btn:hover{
+    border: 1.5px solid $Soft-Blue;
+    color:$Soft-Blue;
+    background-color: white;
+  }
+}
+.heading-tertiary{
+  color: $Grayish-Blue;
+  font-size: .8rem;
 }
